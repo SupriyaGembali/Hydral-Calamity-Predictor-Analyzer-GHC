@@ -1,11 +1,10 @@
 
-# Indian water quality analysis and prediction
+# AI-Powered Water Quality Analysis and Prediction
 
-With fast economic growth and increased urbanization, water pollution has become grimmer. Understanding the issues and patterns of water quality is also critical for water
-pollution reduction and regulation .
+Harnessing the power of AI technology, the Indian Water Quality Analysis and Prediction project addresses the increasingly dire consequences of water pollution amidst rapid economic growth and urbanization. This innovative solution is designed to not only comprehend the complexities of water quality issues but also to contribute to the reduction and regulation of water pollution. By gaining profound insights into the patterns and challenges associated with water quality, this project serves as a vital tool in mitigating the environmental impact and ensuring the well-being of communities.
 
 <p align="center">
- <img src="cover.png" >
+ <img src="cover.jpeg" >
 </p>
 
 ## Overview
@@ -51,22 +50,25 @@ pollution reduction and regulation .
 
 ## problem-statement
 🤔
->Safe and readily available water is important for public health, whether it is used for drinking, domestic use, food production or recreational purposes.
->
-> Water quality prediction is important for water quality preparation and regulation.
-> 
-> Strategies for the prevention and regulation of water contamination can be developed by predicting future changes in water safety at varying levels of contamination
-and devising rational strategies to prevent and regulate water contamination.
+ >Safe and accessible water is crucial for public health across various domains. Predicting water quality changes at different contamination levels is essential for 
+  preparation and regulation.
+
+ >This hackathon seeks AI-based solutions that accurately forecast water safety and enable rational strategies to prevent and regulate water contamination
+
+ > Let's harness the power of AI to protect public health and promote sustainable water management practices.
+ >
+ >
 
 Designated Best Use	Class of Water	Criteria - 
-> According to Central Pollution Control Board,Inland  surface water is categorised in 4 different categories, on the basis of use as shown in the table below - 
+> According to Central Pollution Control Board, Inland  surface water is categorised in 4 different categories, on the basis of use as shown in the table below - 
 <table>
- <th> Designated Best Use </th>
+ <th> Optimal Utilization Classification </th>
  <th> Class of Water </th>
  <th> Criteria </th>
  <tr> 
    <td>
-  Drinking water Source without Conventional treatment but after disinfections.
+  
+   Disinfection as an Alternative to Conventional Treatment for Drinking Water Sources.
    </td>
   <td>
  A
@@ -130,13 +132,13 @@ Propagation of wild life Fisheries.
 ## objective
 🎯
 
-> The system will help reduce people’s consumption of poor-quality water and consequently curtail horrific diseases such as typhoid and diarrhea. 
+> The system aims to minimize the consumption of low-quality water, leading to a reduction in diseases like typhoid and diarrhea. 
 > 
-> To understand what constitutes safe, potable water and distinguish between potable and non-potable water by applying machine learning techniques.
+> By utilizing machine learning techniques, the application distinguishes between safe, drinkable water and non-potable water.
 > 
-> In this case, our application can improve water pollution in different water bodies.
+> Our application has the potential to enhance water quality across various water bodies, addressing water pollution concerns.
 > 
->  The robustness and efficiency of the proposed model in predicting WQI can be examined in futureworks.
+>  The future potential of the proposed model in predicting Water Quality Index (WQI) can be explored to assess its effectiveness and efficiency
 
 
 
@@ -177,7 +179,7 @@ data.info()
 ```
 <img src = "/eda1.png">
 
-Step 2) converting all non-numerical values to NaN
+Step 2) Converting all non-numerical values to NaN
 ```
 data['Temp']=pd.to_numeric(data['Temp'],errors='coerce')
 data['D.O. (mg/l)']=pd.to_numeric(data['D.O. (mg/l)'],errors='coerce')
@@ -197,15 +199,15 @@ Step 4) Making the data more presentable and formatting columns
 data=pd.concat([station,location,state,do,ph,co,bod,na,tc,year],axis=1)
 data. columns = ['station','location','state','do','ph','co','bod','na','tc','year']
 ```
-Step 5) Used MS Excel to do intensive formating in various columns. <br> (Example - There were multiple spelling of same states such as Orissa, Odhisha and Orisha.)
+Step 5) Used MS Excel to do intensive formatting in various columns. <br> (Example - There were multiple spelling of same states such as Orissa, Odhisha and Orisha.)
 
 ## data-visualization
 👀
-> The data has been analyzed using Tableau
->  You may use the interactive dashboard by opening the file Water "Quality Analysis.twb" in the tableau app and attatch the file "cleaneddata.xlsm" <br> 
+> The data analysis has been conducted using Tableau
+> To access the interactive dashboard, please open the "Water Quality Analysis.twb" file in the Tableau app <br> 
 >  (make sure to keep the macros on) <br>
->  A visual repesentation of what the dashboard looks like - <br>
->  <img src = "tableau.png">
+
+
 
 
 ## process-flow
@@ -219,21 +221,18 @@ Step 5) Used MS Excel to do intensive formating in various columns. <br> (Exampl
   
 ## calculations
 
-> The **WQI**, which is calculated using several parameters that affect WQ , was used
-> to measure water quality.
+> The Water Quality Index (WQI) serves as a measure of water quality, taking into account multiple parameters that impact water quality.
 > 
 > ![image](https://user-images.githubusercontent.com/63184114/135417379-20c3cd2f-e17e-40c2-bbcb-ec43c5252be0.png)
 > 
 > 
-> where N denotes the total number of parameters included in the `WQI` formula, qi denotes
-> the quality estimate scale for each parameter i calculated by Formula (2), and wi denotes
-> the unit weight of each parameter in Formula (3)
+> Please refer to the provided image for the formula used to calculate WQI. In the formula, N represents the total number of parameters considered, qi represents the quality estimate scale for each parameter i (calculated using Formula (2)), and wi represents the unit weight of each parameter (determined by Formula (3)).
 > 
 > ![image](https://user-images.githubusercontent.com/63184114/135417428-8fdddc1a-aee7-46f8-866e-6b3b2730f8a8.png)
 > 
 > where Vi is a measured value that refers to the water samples tested, VIdeal is an ideal value
 > and indicates pure water (0 for all parameters except OD = 14.6 mg/L and pH = 7.0), and
-> Si is a standard value recommended for parameter i, taken from internet.
+> Si is a traditional value recommended for parameter i, taken from the internet.
 > 
 > ![image](https://user-images.githubusercontent.com/63184114/135417506-8c34d164-036b-41fa-a8b9-39b9f2657bf9.png)
 > 
@@ -246,13 +245,14 @@ Step 5) Used MS Excel to do intensive formating in various columns. <br> (Exampl
 ## model-used
 🤖
 
-After EDA and extensive Data Cleaning, we have implemented ARIMA (Autoregrssive Integrated Moving Average) Time Series forcasting for Water Quality Index.
-It's used in statistics and econometrics to measure events that happen over a period of time. The model is used to understand past data or predict future data in a series.
+After performing Exploratory Data Analysis (EDA) and conducting thorough Data Cleaning, we have successfully implemented the ARIMA (Autoregressive Integrated Moving Average) Time Series forecasting technique for predicting the Water Quality Index (WQI). ARIMA is a widely used statistical and econometric method for analyzing and forecasting time series data, enabling us to understand past trends and predict future data points.
+
+Regarding the model performance, please provide specific metrics or evaluation results so that we can elaborate on the effectiveness and accuracy of the ARIMA model in predicting the Water Quality Index.
 Model Performance - <br>
 <img src = "/arimares.png">
-<img src = "/arimaresgraphs.png">
+
 <br>
-However, after this to improve upn the model, we implemented Rolling forecast ARIMA (Autoregrssive Integrated Moving Average) model. Further Evaluation was done using walk forward validation and then the forcasts were evaluated.
+However, after this to improve upon the model, we implemented the Rolling forecast ARIMA (Autoregressive Integrated Moving Average) model. Further Evaluation was done using walk-forward validation and then the forecasts was evaluated.
 
 
 
@@ -265,6 +265,8 @@ However, after this to improve upn the model, we implemented Rolling forecast AR
 > The evaluation metrics include RMSE(Root Mean Square Error) and R2 score.
 > 
 > Ml model can be developed to predict `WQI` by selecting important parameters from a standard dataset precited using machine learning model .
+>
+> <img src = "/Results.png">
 
 ## library
 📚
@@ -280,9 +282,9 @@ However, after this to improve upn the model, we implemented Rolling forecast AR
 
 ## usage
 👓
-> Can be used to predict WQI by selecting important parameters from a standard dataset precited using machine learning model .
+> The machine learning model can effectively predict the Water Quality Index (WQI) by selectively considering significant parameters from a standardized dataset. By leveraging this model, accurate WQI predictions can be achieved, enhancing our understanding of water quality conditions..
 > 
-> The robustness and efficiency of the proposed model in predicting WQI can be examined in futureworks.
+> The robustness and efficiency of the proposed model in predicting WQI can be examined in future works.
 
 
 ## References
@@ -290,7 +292,7 @@ However, after this to improve upn the model, we implemented Rolling forecast AR
 
 > https://ieeexplore.ieee.org/document/7944943/metrics#metrics
 >
-> https://www.mdpi.com/2071-1050/13/8/4259/pdf
+
 
 
 <!-- https://www.utc.fr/~jlaforet/Suppl/python-cheatsheets.pdf -->
